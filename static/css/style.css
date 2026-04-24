@@ -1,0 +1,52 @@
+body {
+  margin: 0;
+  font-family: Manrope, sans-serif;
+  background: #f4f7fb;
+  color: #152238;
+}
+header {
+  background: #1e4f9c;
+  color: white;
+  padding: 14px 0;
+}
+.container {
+  width: min(980px, 92%);
+  margin: 0 auto;
+}
+.card {
+  background: white;
+  border: 1px solid #d8e2f0;
+  border-radius: 10px;
+  padding: 16px;
+  margin: 16px 0;
+}
+label {
+  display: block;
+  margin: 10px 0 6px;
+  font-weight: 700;
+}
+textarea, input[type=file] {
+  width: 100%;
+}
+textarea {
+  border: 1px solid #c9d7ea;
+  border-radius: 8px;
+  padding: 10px;
+  resize: vertical;
+}
+button {
+  margin-top: 12px;
+  background: #1e4f9c;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 14px;
+  cursor: pointer;
+}
+pre {
+  white-space: pre-wrap;
+  background: #f1f5fc;
+  border: 1px solid #d8e2f0;
+  border-radius: 8px;
+  padding: 10px;
+}

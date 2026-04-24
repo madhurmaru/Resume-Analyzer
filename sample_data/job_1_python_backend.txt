@@ -1,0 +1,6 @@
+Junior Python Backend Developer
+Requirements:
+- Python and Flask/FastAPI experience
+- SQL and database design basics
+- REST API development
+- Git and teamwork

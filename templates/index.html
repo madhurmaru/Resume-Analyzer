@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block title %}Analyze{% endblock %}
+{% block content %}
+<form method="post" action="{{ url_for('analyze') }}" enctype="multipart/form-data" class="card">
+  <h2>1) Resume Input</h2>
+  <label>Upload Resume (PDF/TXT)</label>
+  <input type="file" name="resume_file" accept=".pdf,.txt">
+
+  <label>Or Paste Resume Text</label>
+  <textarea name="resume_text" rows="8" placeholder="Paste resume text"></textarea>
+
+  <h2>2) Job Descriptions</h2>
+  <label>Job 1</label>
+  <textarea name="job_1" rows="6">{{ sample_jobs[0] }}</textarea>
+
+  <label>Job 2</label>
+  <textarea name="job_2" rows="6">{{ sample_jobs[1] }}</textarea>
+
+  <label>Job 3</label>
+  <textarea name="job_3" rows="6">{{ sample_jobs[2] }}</textarea>
+
+  <label>Optional Extra Job</label>
+  <textarea name="custom_job" rows="4" placeholder="Paste additional job description"></textarea>
+
+  <button type="submit">Run LLM Analysis</button>
+</form>
+{% endblock %}

@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% block title %}Result{% endblock %}
+{% block content %}
+<section class="card">
+  <h2>Parsed Resume</h2>
+  <p><strong>Name:</strong> {{ result.parsed_resume.name }}</p>
+  <p><strong>Email:</strong> {{ result.parsed_resume.email }}</p>
+  <p><strong>Phone:</strong> {{ result.parsed_resume.phone }}</p>
+  <p><strong>Skills:</strong> {{ result.parsed_resume.skills | join(', ') }}</p>
+</section>
+
+<section class="card">
+  <h2>Ranked Jobs</h2>
+  <ol>
+    {% for row in result.ranked_jobs %}
+    <li>Job {{ row.job_index }} - {{ row.match_score }}% ({{ row.reason }})</li>
+    {% endfor %}
+  </ol>
+</section>
+
+{% for row in result.job_analysis %}
+<section class="card">
+  <h2>Job {{ row.job_index }} - {{ row.match_score }}%</h2>
+  <p><strong>Matched Skills:</strong> {{ row.matched_skills | join(', ') }}</p>
+  <p><strong>Missing Skills:</strong> {{ row.missing_skills | join(', ') }}</p>
+
+  <h3>Strengths</h3>
+  <ul>{% for item in row.strengths %}<li>{{ item }}</li>{% endfor %}</ul>
+
+  <h3>Weaknesses</h3>
+  <ul>{% for item in row.weaknesses %}<li>{{ item }}</li>{% endfor %}</ul>
+
+  <h3>ATS Suggestions</h3>
+  <ul>{% for item in row.ats_suggestions %}<li>{{ item }}</li>{% endfor %}</ul>
+
+  <h3>Rewritten Summary</h3>
+  <pre>{{ row.rewritten_summary }}</pre>
+</section>
+{% endfor %}
+
+<section class="card">
+  <h2>Overall Feedback</h2>
+  <h3>Quick Wins</h3>
+  <ul>{% for item in result.overall_feedback.quick_wins %}<li>{{ item }}</li>{% endfor %}</ul>
+  <h3>Major Gaps</h3>
+  <ul>{% for item in result.overall_feedback.major_gaps %}<li>{{ item }}</li>{% endfor %}</ul>
+</section>
+
+<section class="card">
+  <h2>Raw JSON (for debugging)</h2>
+  <pre>{{ json_preview }}</pre>
+</section>
+
+<a href="{{ url_for('home') }}">Analyze another resume</a>
+{% endblock %}

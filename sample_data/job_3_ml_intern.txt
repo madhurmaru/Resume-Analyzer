@@ -1,0 +1,6 @@
+Machine Learning Intern
+Requirements:
+- Python and scikit-learn basics
+- Feature engineering and model evaluation
+- Understanding of classification/regression
+- Ability to explain model results
